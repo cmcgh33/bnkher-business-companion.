@@ -3,7 +3,9 @@
 
 [Try the public BNKHER demo](https://cmcgh33.github.io/bnkher-business-companion./web/) · Fictional data, with a rule-based assistant.
 
-**Version 0.2:** an optional access-controlled OpenAI backend is implemented and tested with injected provider responses. Live AI awaits private credentials and hosting activation. [Activation guide](docs/hosting.md).
+**Version 0.3:** a bounded read-only tool workflow is available in demo mode and implemented for the private AI backend. [Agent contracts and evaluation](docs/agent-workflow.md) · [Product and delivery plan](docs/delivery-plan.md).
+
+**AI activation:** an optional access-controlled OpenAI backend is implemented and tested with injected provider responses. Live AI awaits private credentials and hosting activation. [Activation guide](docs/hosting.md).
 
 A business banking companion prototype for an owner planning her next chapter. BNKHER helps a fictional furniture boutique understand its cash position, evaluate an inventory purchase, and prepare for a leased-warehouse expansion.
 
@@ -37,9 +39,10 @@ Open **http://127.0.0.1:8000**. Keep the terminal running. Opening `index.html` 
 1. Start with the default $8,000 purchase: $24,500 − $8,000 − $8,800 = **$7,700 remaining**, which is **$2,300 below** the $10,000 cushion.
 2. Include expected sales to inspect a separate scenario. These sales are uncertain and excluded by default.
 3. Mark commitments incomplete: the result asks for more information.
-4. Open **Ask BNKHER** and ask “Can I buy $8,000 in inventory?”
-5. Open **My next chapter**, adjust the project budget and mark documents prepared.
-6. Use **Reset demo** to restore the example. Input changes remain only in the page session.
+4. For a compound scenario, select **Use multistep workflow** in Ask BNKHER and choose **Inventory + expansion workflow**. Demo mode uses a fixed planner; live mode requires the private backend.
+5. Open **Ask BNKHER** and ask “Can I buy $8,000 in inventory?”
+6. Open **My next chapter**, adjust the project budget and mark documents prepared.
+7. Use **Reset demo** to restore the example. Input changes remain only in the page session.
 
 ## Validation
 ```bash
@@ -49,7 +52,7 @@ The browser integration check requires Python Playwright and its Chromium browse
 ```bash
 python3 tests/browser_check.py
 ```
-The checked version passed 22 financial/intent/backend tests (provider calls injected) and a desktop/mobile integration check covering purchase scenarios, incomplete data, unsupported questions, checklist changes, budget changes and reset.
+The updated copy passed 29 financial/intent/workflow/backend tests (provider calls injected). Earlier v0.2 desktop/mobile checks covered purchase scenarios, incomplete data, assistant, checklist, budget and reset. Updated workflow browser checks are prepared but not executed here: Playwright Chromium could not be downloaded. GitHub CI now includes those checks and screenshot artifacts.
 
 ## Scope and status
 This is a working frontend and backend prototype with a deterministic calculation engine, a **rule-based demo assistant**, and an optional **AI interpretation layer**. The public GitHub Pages site remains demo mode; live AI has not yet been activated or evaluated against the real provider. All balances, transactions, names, dates and project costs are fictional. There is no banking integration, identity-based authentication, persistent data storage, underwriting, money movement, actual credit report, lender connection or tax determination.

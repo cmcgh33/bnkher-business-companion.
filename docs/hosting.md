@@ -29,3 +29,6 @@ In the interface, also test ambiguous amounts, incomplete commitments, unavailab
 - [Import from a provider](https://docs.replit.com/build/import-from-providers)
 - [Secrets](https://docs.replit.com/core-concepts/project-editor/app-setup/secrets)
 - [Publishing deployment types](https://docs.replit.com/features/publishing/deployment-types)
+
+## Multistep agent pilot
+Select **Use multistep workflow** alongside live AI. Run `npm run eval:agent:live` privately for eight billed agent cases. A workflow can issue up to six provider requests; lower `AI_MAX_CALLS_PER_BOOT` for the pilot. See [tool contracts and limits](agent-workflow.md). Real-provider agent validation is pending.
