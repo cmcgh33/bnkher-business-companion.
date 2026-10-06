@@ -47,4 +47,4 @@ Voice is browser-dependent. Microphone access begins only after the user selects
 
 The product name is **BNKHER**. The lavender, blue, violet and peach palette follows the owner’s supplied branding reference. The flame PNG is a reference-derived image edit for prototype use; confirm it against the original master artwork before production. No registered-trademark status is asserted.
 
-[Product decisions and acceptance criteria](docs/product.md) · [Architecture and integration roadmap](docs/architecture.md) · [Decision flow](docs/decision-flow.md)
+[Requirements and acceptance criteria](docs/requirements.md) · [Verification and UAT](docs/uat.md) · [Product decisions](docs/product.md) · [Architecture and integration roadmap](docs/architecture.md) · [Decision flow](docs/decision-flow.md)
