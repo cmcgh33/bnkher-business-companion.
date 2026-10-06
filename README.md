@@ -3,9 +3,11 @@
 
 [Try the public BNKHER demo](https://cmcgh33.github.io/bnkher-business-companion./web/) · Fictional data, with a rule-based assistant.
 
+[Watch the real AI walkthrough (28 seconds)](design/live-ai-walkthrough.mp4) · No access code needed to watch. Captioned screen captures show an actual OpenAI-powered, four-tool response using fictional data, recorded October 6, 2026.
+
 **Version 0.3:** a bounded read-only tool workflow is available in demo mode and implemented for the private AI backend. [Agent contracts and evaluation](docs/agent-workflow.md) · [Product and delivery plan](docs/delivery-plan.md).
 
-**AI activation:** an optional access-controlled OpenAI backend is implemented and tested with injected provider responses. Live AI awaits private credentials and hosting activation. [Activation guide](docs/hosting.md).
+**AI activation:** the access-controlled OpenAI backend is active in a private Replit development preview and passed the real-provider evaluations described below. [Activation guide](docs/hosting.md).
 
 A business banking companion prototype for an owner planning her next chapter. BNKHER helps a fictional furniture boutique understand its cash position, evaluate an inventory purchase, and prepare for a leased-warehouse expansion.
 
