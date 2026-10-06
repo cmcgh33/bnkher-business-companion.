@@ -29,6 +29,9 @@ All currency is USD. Financial amounts are integer cents in the engine; input an
 | Purchase result | status, purchase, commitments, income, remaining, gap, maxPurchase, scenario, assumptions | Derived scenario with explicit completeness and income selection |
 
 ## Excluded from the first release
-Real customer onboarding, account aggregation, bureau access, model API calls, transaction execution, underwriting, lender matching, tax classification, user accounts, stored chat history, experts and community messaging.
+Real customer onboarding, account aggregation, bureau access, unrestricted model conversation, transaction execution, underwriting, lender matching, tax classification, user accounts, stored chat history, experts and community messaging.
 
 The first release is one fictional owner's journey. It demonstrates requirements-to-implementation traceability without implying production financial capabilities.
+
+## Version 0.2 extension
+R11: interpret natural-language questions through a private server-side model connection, while using server-authoritative data and the existing calculation engine. Acceptance: validate a supported action and amount; require an application access code; disclose live mode and data transmission; fail explicitly on malformed/failed provider output; preserve demo mode. Injected-provider tests passed. Real-model interpretation evaluation and hosted activation remain pending.

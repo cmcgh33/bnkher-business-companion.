@@ -1,19 +1,22 @@
 # Architecture and integration roadmap
 
-## Implemented
-A static HTML/CSS/ES-module frontend uses `web/engine.js` for deterministic integer-cent calculations. `web/app.js` renders state, routes demo assistant questions and exposes optional browser speech APIs. The demo state is in memory and disappears on reset/reload. The application does not make banking or model API calls. Recognition may call the browser provider when the user chooses voice input.
+## Version 0.2
+The frontend remains static HTML/CSS/ES modules. `web/engine.js` owns deterministic integer-cent calculations. `web/app.js` manages page-session state, the rule-based demo assistant and an optional live-AI client. The Node HTTP backend serves the same web files and two API routes; there are no runtime npm dependencies.
 
-Files are served by a local Python HTTP server; there are no runtime npm dependencies. Node’s built-in test runner tests the calculation engine. Python Playwright checks the UI.
+`server/assistant.js` validates scenario settings, requests a strict `route_question` function call from OpenAI, checks the returned action/amount, and calculates from the server-owned fictional snapshot. Its answer templates preserve financial boundaries. The model interprets language; it does not set balances, create credit scores or write authoritative financial calculations.
 
-## Next integration milestone: a grounded assistant
-Keep the calculation engine authoritative. A future model may interpret a request and explain verified tool results; it must not invent balances, credit scores or eligibility decisions. Validate structured amounts, require clarification for ambiguous requests, and return source dates and completeness flags alongside every scenario. Store credentials server-side, never in the static frontend.
+`server/index.js` holds credentials in environment variables, checks a private application access code, rejects cross-origin browser requests, limits requests and serves only approved web asset types. It does not serve environment files or server source. Errors return bounded public messages without provider details.
 
-Proposed tool contracts (not implemented):
-- `get_cash_snapshot`: available integer cents, currency, source identifier, update date and holds status.
-- `list_commitments`: dated obligations and user-confirmed completeness.
-- `evaluate_purchase`: validated purchase, cash threshold, selected income scenario and calculation output.
-- `get_expansion_plan`: itemized costs, owner funds and preparation checklist.
+## API contract
+| Route | Access | Response |
+|---|---|---|
+| GET /api/health | Public, no credentials disclosed | liveAI availability, access-code requirement, configured model identifier and fictional-data label |
+| POST /api/chat | Private application code in x-bnkher-access | server-authored answer, optional calculation evidence, validated interpretation, mode and source date |
 
-Before a real account connection: select the integration provider, model consent and revocation, implement authentication and authorization, define data retention, secure backend access and audit model/tool activity. Do not move real financial records into this frontend prototype.
+POST accepts `message` (1–500 characters), optional bounded `history` (up to six user/assistant messages), and `settings` (cushion integer cents, explicit income/completeness flags, validated expansion budget/checklist). Unknown account values never replace the authoritative snapshot. Statuses include 400 invalid input, 401 incorrect access, 403 invalid origin, 413 oversized body, 429 quota/concurrency limit, 502 provider failure and 503 unconfigured service.
 
-Community, experts, business credit and property financing each need a separate product and data design. They are not working integrations in this release.
+## Hosting and privacy
+GitHub Pages runs the demo. The live-AI version requires a Node host serving frontend/API on one origin. The API key is never a frontend setting. Live mode is explicitly selected and discloses transmission of questions/history. Provider requests set `store:false`; this is not a promise of zero data retention. See [AI design and limits](ai-assistant.md) and [activation instructions](hosting.md).
+
+## Remaining roadmap
+Real banking/credit integrations, identity-based authentication, durable data and quota storage, grounding against source documents, an expanded answer policy, operational monitoring, accessibility assessment, expert/community access and property financing each require their own design. No real financial data or transaction execution is included.

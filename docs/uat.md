@@ -23,3 +23,8 @@ Validation date: October 6, 2026. Automated local evidence: Node 24 and headless
 Run commands and environment prerequisites are in the README. Test source is in `tests/`. Screenshots in `design/` show the checked interface, not real financial accounts.
 
 Not verified: browser speech on physical devices; screen-reader and WCAG compliance; live bank/credit integrations; authentication and permissions; persistent storage; model safety under open-ended requests; real lender requirements; security and production load.
+
+## Version 0.2 AI integration
+22 combined engine/backend tests passed. The added suite covers strict model request formatting, authoritative cash values, user-selected scenario flags, invalid settings, malformed model responses, missing amounts, provider errors, credit/tax boundaries, private access codes, forbidden web paths, origin checks and request quotas. Provider responses are injected fixtures, not real OpenAI calls.
+
+`python3 tests/ai_browser_check.py` passed the live-mode UI path with an injected provider, including missing/wrong application code, a grounded purchase result and switching back to demo. Eight optional billed provider evaluation cases are in `tests/live-eval.mjs`; they have not been executed.

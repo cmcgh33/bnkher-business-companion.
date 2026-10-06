@@ -41,4 +41,6 @@ At an illustrative 10% annual rate over 60 months, amortizing $62,000 gives $1,3
 ## Acceptance evidence
 The financial suite verifies the date window, exact-cent cushion boundary, default income exclusion, incomplete obligations, invalid amounts, expansion budget and payment calculations, and intent parsing. The UI check exercises the default/optional-income/incomplete scenarios, unsupported assistant prompts, editing budgets and documents, resetting state, and overflow at 1440px and 390px widths. Screenshots are saved in `design/`.
 
-Not validated: speech recognition/audio output on real devices, WCAG conformance, real banking feeds, identity/security controls, underwriting accuracy, production availability or business outcomes. No usage, revenue or savings claims are made.
+Version 0.2 adds an optional server-side OpenAI interpretation layer; injected-provider tests cover integration and failure handling. Real provider evaluation and hosted AI activation remain pending. See `ai-assistant.md`.
+
+Not validated: real model interpretation quality; speech recognition/audio output on real devices, WCAG conformance, real banking feeds, identity/security controls, underwriting accuracy, production availability or business outcomes. No usage, revenue or savings claims are made.
