@@ -15,7 +15,10 @@ jobs:
       - run: python -m pip install playwright
       - run: python -m playwright install --with-deps chromium
       - run: python tests/browser_check.py
+      - run: python tests/record-demo.py
       - uses: actions/upload-artifact@v4
         with:
           name: bnkher-browser-evidence
-          path: design/*.png
+          path: |
+            design/*.png
+            design/demo.webm

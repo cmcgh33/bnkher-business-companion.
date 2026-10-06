@@ -52,7 +52,7 @@ The browser integration check requires Python Playwright and its Chromium browse
 ```bash
 python3 tests/browser_check.py
 ```
-The updated copy passed 29 financial/intent/workflow/backend tests (provider calls injected). Earlier v0.2 desktop/mobile checks covered purchase scenarios, incomplete data, assistant, checklist, budget and reset. Updated workflow browser checks are prepared but not executed here: Playwright Chromium could not be downloaded. GitHub CI now includes those checks and screenshot artifacts.
+The updated copy passed 29 financial/intent/workflow/backend tests (provider calls injected). Earlier v0.2 desktop/mobile checks covered purchase scenarios, incomplete data, assistant, checklist, budget and reset. The updated desktop/mobile browser workflow passed in [GitHub CI](https://github.com/cmcgh33/bnkher-business-companion./actions/runs/37510173780), covering the four-tool compound scenario and its financial boundaries. The run includes downloadable screenshots.
 
 ## Scope and status
 This is a working frontend and backend prototype with a deterministic calculation engine, a **rule-based demo assistant**, and an optional **AI interpretation layer**. The public GitHub Pages site remains demo mode; live AI has not yet been activated or evaluated against the real provider. All balances, transactions, names, dates and project costs are fictional. There is no banking integration, identity-based authentication, persistent data storage, underwriting, money movement, actual credit report, lender connection or tax determination.
