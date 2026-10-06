@@ -1,7 +1,7 @@
 # Read-only agent workflow — 6 October 2026
 
 ## What changed
-The v0.3 workflow coordinates tools rather than merely classifying one question. The public static demo uses a deterministic planner. The private backend lets a model choose the next tool, returns that tool's calculated result to the model, and repeats until completion. Final financial wording comes from application code, not generated prose. Live provider accuracy is pending; injected responses verify the loop, not the real model.
+The v0.3 workflow coordinates tools rather than merely classifying one question. The public static demo uses a deterministic planner. The private backend lets a model choose the next tool, returns that tool's calculated result to the model, and repeats until completion. Final financial wording comes from application code, not generated prose. On October 6, 2026, all 8 live agent cases passed against `gpt-5.4-mini-2026-03-17` in an access-code-protected Replit development preview. All 8 single-intent cases and 29 automated checks also passed. Missing-amount and policy-injection failures found during activation led to clearer routing instructions. This small case set does not establish accuracy for arbitrary requests. A protected HTTP compound request returned live-agent mode with four ordered tools and $7,700 remaining; no production deployment is published.
 
 Try Ask BNKHER → select **Use multistep workflow** → **Inventory + expansion workflow**. Select live AI as well only on the configured private Node backend.
 

@@ -31,4 +31,4 @@ In the interface, also test ambiguous amounts, incomplete commitments, unavailab
 - [Publishing deployment types](https://docs.replit.com/features/publishing/deployment-types)
 
 ## Multistep agent pilot
-Select **Use multistep workflow** alongside live AI. Run `npm run eval:agent:live` privately for eight billed agent cases. A workflow can issue up to six provider requests; lower `AI_MAX_CALLS_PER_BOOT` for the pilot. See [tool contracts and limits](agent-workflow.md). Real-provider agent validation is pending.
+Select **Use multistep workflow** alongside live AI. Run `npm run eval:agent:live` privately for eight billed agent cases. A workflow can issue up to six provider requests; lower `AI_MAX_CALLS_PER_BOOT` for the pilot. See [tool contracts and limits](agent-workflow.md). Initial real-provider validation passed on October 6, 2026: 8/8 interpretation cases and 8/8 agent cases with the pinned default model. A protected HTTP compound workflow also passed. The current activation is a Replit development preview, not a published production deployment. The pilot allowance is 20 workflows per server boot and is not a durable billing cap.
