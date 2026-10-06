@@ -5,6 +5,8 @@ The v0.3 workflow coordinates tools rather than merely classifying one question.
 
 Try Ask BNKHER → select **Use multistep workflow** → **Inventory + expansion workflow**. Select live AI as well only on the configured private Node backend.
 
+![Actual compound demo and ordered tool evidence](../design/agent-workflow.png)
+
 ## Tool contracts
 All amounts in results use integer cents. Inputs cannot replace the account balance. The fictional snapshot remains the authoritative source.
 
