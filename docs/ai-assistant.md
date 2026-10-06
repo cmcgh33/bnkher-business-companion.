@@ -1,4 +1,6 @@
-# Grounded AI assistant: version 0.2
+# Grounded AI assistant and tool workflow
+
+The original single-question interpretation mode remains available. Version 0.3 adds a separate [read-only tool workflow](agent-workflow.md) and [delivery plan](delivery-plan.md). This page describes the original interpreter; the agent guide documents its six-call limit, tool evidence sent to the provider and updated evaluation status.
 
 ## Implemented behavior
 The optional backend calls OpenAI’s Responses API with a strict `route_question` function schema. The model interprets one of seven supported request categories and a purchase amount. BNKHER validates the returned structure and uses its integer-cent engine to calculate the result. Server-authored answer templates present the numbers and boundaries. The model does not write the financial explanation or decide eligibility.
@@ -42,6 +44,6 @@ Each process allows at most two concurrent AI requests, five requests per socket
 **These in-memory limits are not an account-level billing cap.** Restarting or adding hosting instances resets or multiplies their allowance. Some hosting proxies also share one socket IP across visitors. Keep this AI mode access-controlled for the first release. A broader public service needs identity-based access, shared durable quotas, billing monitoring and production operational controls.
 
 ## Verification status
-22 automated engine/backend checks passed, including injected provider responses, malformed output, wrong access code, origin checks, allowance exhaustion, incomplete commitments and server-authoritative data. The UI checks passed for both the static demo and an injected-provider backend, including mode switching and failed credentials.
+For the earlier v0.2 review, 22 automated engine/backend checks passed, including injected provider responses, malformed output, wrong access code, origin checks, allowance exhaustion, incomplete commitments and server-authoritative data. The UI checks passed for both the static demo and an injected-provider backend, including mode switching and failed credentials.
 
 **No real OpenAI call was made during this build.** `tests/live-eval.mjs` contains eight optional billed intent evaluations to run after private credentials are configured. Model understanding, provider account access, real latency and a hosted live-AI deployment remain unverified.

@@ -35,3 +35,8 @@ The first release is one fictional owner's journey. It demonstrates requirements
 
 ## Version 0.2 extension
 R11: interpret natural-language questions through a private server-side model connection, while using server-authoritative data and the existing calculation engine. Acceptance: validate a supported action and amount; require an application access code; disclose live mode and data transmission; fail explicitly on malformed/failed provider output; preserve demo mode. Injected-provider tests passed. Real-model interpretation evaluation and hosted activation remain pending.
+
+## Version 0.3 extension
+R12: coordinate a purchase and expansion question with read-only evidence tools. Acceptance: cash precedes purchase, funding precedes document readiness, four tools appear for the compound default example, and original data cannot be replaced by model arguments. The $8,000 purchase leaves $7,700; the independent expansion funding gap is $62,000. Seven workflow/backend automated checks pass with injected provider calls; live evaluation and updated browser verification are pending.
+
+R13: stop unsafe or invalid workflows explicitly. Acceptance: unknown tools, added fields, invalid dependencies, repeated tools, invalid amounts and step-limit exhaustion produce no final recommendation. No write tool exists. A completed trace includes source date and evidence; financial wording is application-authored. See [agent contracts](agent-workflow.md).

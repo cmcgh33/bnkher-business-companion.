@@ -1,16 +1,19 @@
 # Architecture and integration roadmap
 
-## Version 0.2
-The frontend remains static HTML/CSS/ES modules. `web/engine.js` owns deterministic integer-cent calculations. `web/app.js` manages page-session state, the rule-based demo assistant and an optional live-AI client. The Node HTTP backend serves the same web files and two API routes; there are no runtime npm dependencies.
+## Version 0.3
+The frontend remains static HTML/CSS/ES modules. `web/engine.js` owns deterministic integer-cent calculations. `web/app.js` manages page-session state, the rule-based demo assistant and an optional live-AI client. The Node HTTP backend serves the same web files and three API routes; there are no runtime npm dependencies.
 
 `server/assistant.js` validates scenario settings, requests a strict `route_question` function call from OpenAI, checks the returned action/amount, and calculates from the server-owned fictional snapshot. Its answer templates preserve financial boundaries. The model interprets language; it does not set balances, create credit scores or write authoritative financial calculations.
 
 `server/index.js` holds credentials in environment variables, checks a private application access code, rejects cross-origin browser requests, limits requests and serves only approved web asset types. It does not serve environment files or server source. Errors return bounded public messages without provider details.
 
+`web/workflow.js` owns read-only tool execution and evidence formatting. `server/agent.js` runs a bounded model-selected tool loop with function outputs replayed to the provider. The static demo uses a fixed planner. [Contracts, limits and pending evaluation](agent-workflow.md).
+
 ## API contract
 | Route | Access | Response |
 |---|---|---|
 | GET /api/health | Public, no credentials disclosed | liveAI availability, access-code requirement, configured model identifier and fictional-data label |
+| POST /api/agent | Private application code in x-bnkher-access | Application-authored answer, ordered tool trace, completion type, mode and source date |
 | POST /api/chat | Private application code in x-bnkher-access | server-authored answer, optional calculation evidence, validated interpretation, mode and source date |
 
 POST accepts `message` (1–500 characters), optional bounded `history` (up to six user/assistant messages), and `settings` (cushion integer cents, explicit income/completeness flags, validated expansion budget/checklist). Unknown account values never replace the authoritative snapshot. Statuses include 400 invalid input, 401 incorrect access, 403 invalid origin, 413 oversized body, 429 quota/concurrency limit, 502 provider failure and 503 unconfigured service.

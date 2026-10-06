@@ -28,3 +28,8 @@ Not verified: browser speech on physical devices; screen-reader and WCAG complia
 22 combined engine/backend tests passed. The added suite covers strict model request formatting, authoritative cash values, user-selected scenario flags, invalid settings, malformed model responses, missing amounts, provider errors, credit/tax boundaries, private access codes, forbidden web paths, origin checks and request quotas. Provider responses are injected fixtures, not real OpenAI calls.
 
 `python3 tests/ai_browser_check.py` passed the live-mode UI path with an injected provider, including missing/wrong application code, a grounded purchase result and switching back to demo. Eight optional billed provider evaluation cases are in `tests/live-eval.mjs`; they have not been executed.
+
+## Version 0.3 workflow checks
+29 automated tests passed on the updated copy; seven cover compound tool evidence, refused/ambiguous requests, dependencies and step limits, incomplete/income scenarios, model feedback, provider faults and HTTP access/quota controls. Provider responses were injected. Live agent evaluation is pending; use the eight-case opt-in script described in [agent workflow](agent-workflow.md).
+
+Updated desktop/mobile browser checks passed in [GitHub Actions](https://github.com/cmcgh33/bnkher-business-companion./actions/runs/37510173780), including the four-tool compound demo, funding gap and independent-scenario disclosure. Downloadable screenshots are attached to that run. The local Chromium download failure was resolved by running the checks in CI. The recording script captures the fixed-planner demo, not live AI.
