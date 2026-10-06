@@ -1,6 +1,8 @@
 # BNKHER
 **Your ambition. A clearer path.**
 
+[Try the live BNKHER demo](https://cmcgh33.github.io/bnkher-business-companion./web/) · Fictional data, with a rule-based demo assistant.
+
 A business banking companion prototype for an owner planning her next chapter. BNKHER helps a fictional furniture boutique understand its cash position, evaluate an inventory purchase, and prepare for a leased-warehouse expansion.
 
 ![BNKHER dashboard](design/desktop.png)
